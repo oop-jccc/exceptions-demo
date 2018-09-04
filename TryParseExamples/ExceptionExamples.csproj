@@ -49,8 +49,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DivideByZeroNoExceptionHandlingTest.cs" />
-    <Compile Include="NullableTest.cs" />
     <Compile Include="TryParseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
