@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DivideByZeroNoExceptionHandlingTest.cs" />
+    <Compile Include="ExceptionFilters.cs" />
     <Compile Include="NullableTest.cs" />
     <Compile Include="TryParseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
