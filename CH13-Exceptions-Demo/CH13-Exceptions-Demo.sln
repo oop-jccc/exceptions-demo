@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH13-Exceptions-Demo", "CH1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions-tests", "..\TryParseExamples\Exceptions-tests.csproj", "{40874DF5-BEBE-4674-A960-C7B77E82A549}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LSP-exceptions", "..\LSP-exceptions\LSP-exceptions.csproj", "{6DE52887-797D-4715-9B77-E0CE873EA4C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{40874DF5-BEBE-4674-A960-C7B77E82A549}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40874DF5-BEBE-4674-A960-C7B77E82A549}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40874DF5-BEBE-4674-A960-C7B77E82A549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE52887-797D-4715-9B77-E0CE873EA4C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE52887-797D-4715-9B77-E0CE873EA4C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE52887-797D-4715-9B77-E0CE873EA4C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE52887-797D-4715-9B77-E0CE873EA4C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
