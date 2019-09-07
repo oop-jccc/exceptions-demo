@@ -30,8 +30,8 @@ namespace TryParseExamples
         public void NullConditionalTest() //?.
         {
             StringBuilder sb = null;
-            var s = sb?.ToString().ToUpper();
-            var length = s?.Length;
+            var s = sb?.ToString()?.ToUpper();
+            int? length = s?.Length;
 
             Assert.AreEqual(0, length.GetValueOrDefault());
         }
@@ -40,9 +40,9 @@ namespace TryParseExamples
         public void PropertyAccessHappyPathTest()
         {
             var sb2 = new StringBuilder("hello world!");
-            var s2 = sb2?.ToString().ToUpper();
+            string s2 = sb2?.ToString().ToUpper();
             Assert.AreEqual("HELLO WORLD!", s2);
-            Assert.AreEqual(12, s2?.Length);
+            Assert.AreEqual(12, s2.Length);
         }
 
         [TestMethod]
