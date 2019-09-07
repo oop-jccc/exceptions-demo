@@ -9,7 +9,7 @@ namespace TryParseExamples
     public class ExceptionFilterTests
     {
         [TestMethod]
-        public void ExceptionFilterTest() //??
+        public void ExceptionFilterTest() 
         {
             string result = null;
             try
@@ -29,7 +29,7 @@ namespace TryParseExamples
                 result = $"Some other failure: {ex.Status}";
             }
 
-            Assert.AreEqual(null, result);
+            Assert.IsNull(result);
         }
 
     }

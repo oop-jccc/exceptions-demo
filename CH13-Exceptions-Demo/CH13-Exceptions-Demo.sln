@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2003
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH13-Exceptions-Demo", "CH13-Exceptions-Demo.csproj", "{6ABD813F-33D3-4677-94E7-2923E9E33ADB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryParseExamples", "..\TryParseExamples\TryParseExamples.csproj", "{40874DF5-BEBE-4674-A960-C7B77E82A549}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions-tests", "..\TryParseExamples\Exceptions-tests.csproj", "{40874DF5-BEBE-4674-A960-C7B77E82A549}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

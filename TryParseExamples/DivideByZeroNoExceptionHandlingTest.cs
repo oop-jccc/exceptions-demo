@@ -15,7 +15,7 @@ namespace TryParseExamples
 
             try
             {
-                var badResult = numerator / denominator;
+                _ = numerator / denominator;
             }
             catch (DivideByZeroException e)
             {
@@ -33,7 +33,7 @@ namespace TryParseExamples
         {
             var numerator = 5;
             var denominator = 0;
-            var badResult = numerator / denominator;
+            _ = numerator / denominator;
         }
     }
 }

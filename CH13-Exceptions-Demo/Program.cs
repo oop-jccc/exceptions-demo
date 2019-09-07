@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CH13_Exceptions_Demo
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            //Unhandeled();
-            //Handeled();
+            Unhandled();
+            //Handled();
             //TryParse();
-            ThrowExample();
+            //ThrowExample();
         }
 
-        private static void Unhandeled()
+        private static void Unhandled()
         {
             Console.WriteLine("Enter and integer");
             var input = Console.ReadLine();
@@ -24,11 +20,11 @@ namespace CH13_Exceptions_Demo
             Console.WriteLine(output);
         }
 
-        private static void Handeled()
+        private static void Handled()
         {
             try
             {
-                Unhandeled();
+                Unhandled();
             }
             catch (ArgumentNullException ex)
             {
@@ -52,7 +48,7 @@ namespace CH13_Exceptions_Demo
         {
             Console.WriteLine("Enter and integer");
             var input = Console.ReadLine();
-            bool success = int.TryParse(input, out var output);
+            var success = int.TryParse(input, out var output);
 
             if (success)
             {
@@ -62,15 +58,15 @@ namespace CH13_Exceptions_Demo
             {
                 Console.WriteLine("You did something wrong.");
             }
-
         }
+
         private static void ThrowExample()
         {
             Console.WriteLine("Enter and integer");
             var input = Console.ReadLine();
+            if (input == null) return;
             var output = int.Parse(input);
-            if(output <0) throw new NegativeNumberException();
+            if (output < 0) throw new NegativeNumberException();
         }
-
     }
 }
