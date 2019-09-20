@@ -3,8 +3,7 @@ using NUnit.Framework;
 
 namespace Tests
 {
-    [TestFixture]
-    public class UsingTests
+   public class UsingTests
     {
         [Test]
         public void FileOpenFinallyTest()

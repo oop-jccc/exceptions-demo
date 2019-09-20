@@ -1,15 +1,12 @@
-﻿using System;
-using System.Net;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Net;
+using NUnit.Framework;
 
 namespace TryParseExamples
 {
-    [TestClass]
     public class ExceptionFilterTests
     {
-        [TestMethod]
-        public void ExceptionFilterTest() 
+        [Test]
+        public void ExceptionFilterTest()
         {
             string result = null;
             try
@@ -31,6 +28,5 @@ namespace TryParseExamples
 
             Assert.IsNull(result);
         }
-
     }
 }

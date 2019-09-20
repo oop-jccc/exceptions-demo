@@ -1,12 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+
 
 namespace TryParseExamples
 {
-    [TestClass]
+   
     public class DivideByZeroNoExceptionHandlingTests
     {
-        [TestMethod]
+        [Test]
         public void DivideByZeroNoExceptionHandlingTest()
         {
             var success = true;
@@ -27,13 +28,16 @@ namespace TryParseExamples
             }
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(DivideByZeroException))]
+        [Test]
         public void DivideByZeroUnhandledExceptionHandlingTest()
         {
             var numerator = 5;
             var denominator = 0;
-            _ = numerator / denominator;
+            Assert.Throws<DivideByZeroException>(() =>
+            {
+                _ = numerator / denominator;
+            });
+            
         }
     }
 }

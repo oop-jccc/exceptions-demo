@@ -1,13 +1,13 @@
 ﻿using System;
+using System.Reflection;
 using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace TryParseExamples
 {
-    [TestClass]
     public class NullableTests
     {
-        [TestMethod]
+        [Test]
         public void NullCoalescingTest() //??
         {
             string s1 = null;
@@ -18,15 +18,18 @@ namespace TryParseExamples
             Assert.AreEqual("nothing", s3);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [Test]
         public void PropertyAccessErrorTest()
         {
             StringBuilder sb = null;
-            var s1 = sb.Length;
+            Assert.Throws<NullReferenceException>(() =>
+            {
+                _ = sb.Length;
+            });
+            
         }
 
-        [TestMethod]
+        [Test]
         public void NullConditionalTest() //?.
         {
             StringBuilder sb = null;
@@ -36,7 +39,7 @@ namespace TryParseExamples
             Assert.AreEqual(0, length.GetValueOrDefault());
         }
 
-        [TestMethod]
+        [Test]
         public void PropertyAccessHappyPathTest()
         {
             var sb2 = new StringBuilder("hello world!");
@@ -45,7 +48,7 @@ namespace TryParseExamples
             Assert.AreEqual(12, s2.Length);
         }
 
-        [TestMethod]
+        [Test]
         public void NullCoalescingNullConditionalTest() // ?? smd ?.
         {
             StringBuilder sb = null;

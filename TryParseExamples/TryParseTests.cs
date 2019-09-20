@@ -1,11 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace TryParseExamples
 {
-    [TestClass]
     public class TryParseTests
     {
-        [TestMethod]
+        [Test]
         public void TryParseDoubleSuccessTest()
         {
             const string value = "3.14129";
@@ -15,7 +14,7 @@ namespace TryParseExamples
             Assert.AreEqual(3.14129, result, 0.000001);
         }
 
-        [TestMethod]
+        [Test]
         public void TryParseDoubleFailTest()
         {
             const string value = "abcd";

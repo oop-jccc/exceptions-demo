@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CH13_Exceptions_Demo
+﻿namespace CH13_Exceptions_Demo
 {
   public class MilesPerGallon
     {
