@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using NUnit.Framework;
 
 namespace Tests
@@ -12,9 +13,11 @@ namespace Tests
             {
                 ///////////////////////////////
                 StreamReader streamReader = null;
+                Console.WriteLine(nameof(FileOpenFinallyTest));
                 try
                 {
                     streamReader = File.OpenText("foo.txt");
+                    Console.WriteLine(streamReader);
                 }
                 finally
                 {
@@ -25,14 +28,29 @@ namespace Tests
         }
 
         [Test]
-        public void FileOpenUsingTest()
+        public void FileOpenUsingStatementTest()
         {
             Assert.Throws<FileNotFoundException>(() =>
             {
                 /////////////////////////////////
+                Console.WriteLine(nameof(FileOpenUsingStatementTest));
                 using (var streamReader = File.OpenText("foo.txt"))
                 {
+                    Console.WriteLine(streamReader);
                 }
+                ////////////////////////////////
+            });
+        }
+
+        [Test]
+        public void FileOpenUsingDeclarationTest()
+        {
+            Assert.Throws<FileNotFoundException>(() =>
+            {
+                /////////////////////////////////
+                Console.WriteLine(nameof(FileOpenUsingDeclarationTest));
+                using var streamReader = File.OpenText("foo.txt");
+                Console.WriteLine(streamReader);
                 ////////////////////////////////
             });
         }

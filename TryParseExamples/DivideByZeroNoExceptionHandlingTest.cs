@@ -21,6 +21,7 @@ namespace TryParseExamples
             catch (DivideByZeroException e)
             {
                 success = false;
+                return; // still hits the finally
             }
             finally
             {
