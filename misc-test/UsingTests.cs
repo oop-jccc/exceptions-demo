@@ -12,17 +12,7 @@ namespace Tests
             Assert.Throws<FileNotFoundException>(() =>
             {
                 ///////////////////////////////
-                StreamReader streamReader = null;
-                Console.WriteLine(nameof(FileOpenFinallyTest));
-                try
-                {
-                    streamReader = File.OpenText("foo.txt");
-                    Console.WriteLine(streamReader);
-                }
-                finally
-                {
-                    streamReader?.Dispose();
-                }
+
                 ////////////////////////////////
             });
         }
@@ -33,11 +23,7 @@ namespace Tests
             Assert.Throws<FileNotFoundException>(() =>
             {
                 /////////////////////////////////
-                Console.WriteLine(nameof(FileOpenUsingStatementTest));
-                using (var streamReader = File.OpenText("foo.txt"))
-                {
-                    Console.WriteLine(streamReader);
-                }
+    
                 ////////////////////////////////
             });
         }
@@ -48,9 +34,7 @@ namespace Tests
             Assert.Throws<FileNotFoundException>(() =>
             {
                 /////////////////////////////////
-                Console.WriteLine(nameof(FileOpenUsingDeclarationTest));
-                using var streamReader = File.OpenText("foo.txt");
-                Console.WriteLine(streamReader);
+
                 ////////////////////////////////
             });
         }
