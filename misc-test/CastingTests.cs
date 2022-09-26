@@ -3,11 +3,19 @@ using NUnit.Framework;
 
 namespace Tests
 {
-    class Parent {}
+    class Animal
+    {
+    }
 
-    class Foo :Parent {}
+    class Dog : Animal
+    {
+        public string Bark { get; init; } = "Woof";
+    }
 
-    class Bar : Parent {}
+    class Cat : Animal
+    {
+        public string Meow { get; init; } = "Meow";
+    }
 
     public class CastingTests
     {
@@ -16,23 +24,49 @@ namespace Tests
         {
             Assert.Throws<InvalidCastException>(() =>
             {
-                Parent foo = new Foo();
-                var bar = (Bar) foo;
+                Animal animal = new Dog();
+                var cat = (Cat)animal;
             });
         }
 
         [Test]
         public void IsOperatorTest()
         {
-            Parent foo = new Foo();
-            Assert.IsFalse(foo is Bar);
+            Animal animal = new Dog();
+            Assert.IsFalse(animal is Cat);
         }
 
         [Test]
         public void AsOperatorTest()
         {
-            Parent foo = new Foo();
-            Assert.IsNull(foo as Bar);
+            Animal animal = new Dog();
+            Assert.IsNull(animal as Cat);
+        }
+
+        [Test]
+        public void AsOperatorTest2()
+        {
+            Animal animal = new Cat();
+            var cat = animal as Cat;
+
+            Assert.That(cat.Meow, Is.EqualTo("Meow")); // this would cause a NullReferenceException if animal were not a cat.
+        }
+
+        [Test]
+        public void IsOperatorPatternMatching()
+        {
+            Animal animal = new Cat();
+
+            if (animal is Cat cat)
+            {
+                Assert.That(cat.Meow, Is.EqualTo("Meow"));
+                //The if (animal is Cat cat) statement combines the test with an initialization assignment.
+                //The assignment occurs only when the test succeeds.
+            }
+            else
+            {
+                Assert.Fail("animal is not a cat");
+            }
         }
     }
 }
