@@ -1,31 +1,30 @@
-﻿namespace CH13_Exceptions_Demo
+﻿namespace CH13_Exceptions_Demo;
+
+public class MilesPerGallon
 {
-  public class MilesPerGallon
+    private double _gallons;
+    private double _miles;
+
+    public double Mpg => Miles / Gallons;
+
+    public double Miles
     {
-        private double _gallons;
-        private double _miles;
-
-        public double Mpg => Miles / Gallons;
-
-        public double Miles
+        get => _miles;
+        set
         {
-            get => _miles;
-            set
-            {
-                //ValidateNonNegative(value);
-                _miles = value;
-            }
+            //ValidateNonNegative(value);
+            _miles = value;
         }
+    }
 
-        public double Gallons
+    public double Gallons
+    {
+        get => _gallons;
+        set
         {
-            get => _gallons;
-            set
-            {
-                //ValidateNonNegative(value);
-                //ValidateNonZero(value);
-                _gallons = value;
-            }
+            //ValidateNonNegative(value);
+            //ValidateNonZero(value);
+            _gallons = value;
         }
     }
 }

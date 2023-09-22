@@ -1,42 +1,47 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using NUnit.Framework;
 
-namespace Tests
+namespace Tests;
+
+public class UsingTests
 {
-   public class UsingTests
+    [Test]
+    public void FileOpenFinallyTest()
     {
-        [Test]
-        public void FileOpenFinallyTest()
+        Assert.Throws<FileNotFoundException>(() =>
         {
-            Assert.Throws<FileNotFoundException>(() =>
+            FileStream stream = null;
+            try
             {
-                ///////////////////////////////
+                stream = new FileStream("file.txt", FileMode.Open);
+                // code to read or write to the stream
+            }
+            finally
+            {
+                stream?.Dispose();
+            }
+        });
+    }
 
-                ////////////////////////////////
-            });
-        }
-
-        [Test]
-        public void FileOpenUsingStatementTest()
+    [Test]
+    public void FileOpenUsingStatementTest()
+    {
+        Assert.Throws<FileNotFoundException>(() =>
         {
-            Assert.Throws<FileNotFoundException>(() =>
+            using (var stream = new FileStream("file.txt", FileMode.Open))
             {
-                /////////////////////////////////
-    
-                ////////////////////////////////
-            });
-        }
+                // code to read or write to the stream
+            }
+        });
+    }
 
-        [Test]
-        public void FileOpenUsingDeclarationTest()
+    [Test]
+    public void FileOpenUsingDeclarationTest()
+    {
+        Assert.Throws<FileNotFoundException>(() =>
         {
-            Assert.Throws<FileNotFoundException>(() =>
-            {
-                /////////////////////////////////
-
-                ////////////////////////////////
-            });
-        }
+            using var stream = new FileStream("file.txt", FileMode.Open);
+            // code to read or write to the stream
+        });
     }
 }

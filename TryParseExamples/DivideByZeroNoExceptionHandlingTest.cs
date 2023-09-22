@@ -2,43 +2,41 @@
 using NUnit.Framework;
 
 
-namespace TryParseExamples
+namespace TryParseExamples;
+
+public class DivideByZeroNoExceptionHandlingTests
 {
-   
-    public class DivideByZeroNoExceptionHandlingTests
+    [Test]
+    public void DivideByZeroNoExceptionHandlingTest()
     {
-        [Test]
-        public void DivideByZeroNoExceptionHandlingTest()
-        {
-            var success = true;
-            var numerator = 5;
-            var denominator = 0;
+        var success = true;
+        var numerator = 5;
+        var denominator = 0;
 
-            try
-            {
-                _ = numerator / denominator;
-            }
-            catch (DivideByZeroException e)
-            {
-                success = false;
-                return; // still hits the finally
-            }
-            finally
-            {
-                Assert.IsFalse(success);
-            }
+        try
+        {
+            _ = numerator / denominator;
         }
-
-        [Test]
-        public void DivideByZeroUnhandledExceptionHandlingTest()
+        catch (DivideByZeroException e)
         {
-            var numerator = 5;
-            var denominator = 0;
-            Assert.Throws<DivideByZeroException>(() =>
-            {
-                _ = numerator / denominator;
-            });
+            success = false;
+            return; // still hits the finally
+        }
+        finally
+        {
+            Assert.IsFalse(success);
+        }
+    }
+
+    [Test]
+    public void DivideByZeroUnhandledExceptionHandlingTest()
+    {
+        var numerator = 5;
+        var denominator = 0;
+        Assert.Throws<DivideByZeroException>(() =>
+        {
+            _ = numerator / denominator;
+        });
             
-        }
     }
 }
