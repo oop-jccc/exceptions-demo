@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using CH13_Exceptions_Demo;
 
 [TestFixture]
 public class MilesPerGallonTests
