@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Text;
 using NUnit.Framework;
 
@@ -7,12 +8,15 @@ namespace TryParseExamples;
 public class NullableTests
 {
     [Test]
-    public void NullCoalescingTest() //??
+    public void NullCoalescingTest()
     {
-        string s1 = null;
+        string? s1 = null;
+
+        // old way
         var s2 = s1 == null ? "nothing" : s1;
         Assert.AreEqual("nothing", s2);
 
+        // new way - null-coalescing operator
         var s3 = s1 ?? "nothing";
         Assert.AreEqual("nothing", s3);
     }
@@ -20,18 +24,14 @@ public class NullableTests
     [Test]
     public void PropertyAccessErrorTest()
     {
-        StringBuilder sb = null;
-        Assert.Throws<NullReferenceException>(() =>
-        {
-            _ = sb.Length;
-        });
-            
+        StringBuilder? sb = null;
+        Assert.Throws<NullReferenceException>(() => { _ = sb.Length; });
     }
 
     [Test]
-    public void NullConditionalTest() //?.
+    public void NullConditionalTest() //?. null-conditional operator
     {
-        StringBuilder sb = null;
+        StringBuilder? sb = null;
         var s = sb?.ToString()?.ToUpper();
         int? length = s?.Length;
 
@@ -39,19 +39,10 @@ public class NullableTests
     }
 
     [Test]
-    public void PropertyAccessHappyPathTest()
+    public void NullCoalescingNullConditionalTest() // ?? and ?.
     {
-        var sb2 = new StringBuilder("hello world!");
-        string s2 = sb2?.ToString().ToUpper();
-        Assert.AreEqual("HELLO WORLD!", s2);
-        Assert.AreEqual(12, s2.Length);
-    }
-
-    [Test]
-    public void NullCoalescingNullConditionalTest() // ?? smd ?.
-    {
-        StringBuilder sb = null;
-        var s = sb?.ToString().ToUpper() ?? "nothing"; 
+        StringBuilder? sb = null;
+        var s = sb?.ToString().ToUpper() ?? "nothing";
         Assert.AreEqual("nothing", s);
     }
 }
