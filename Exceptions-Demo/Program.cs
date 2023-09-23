@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CH13_Exceptions_Demo;
+namespace Exceptions_Demo;
 
 internal static class Program
 {

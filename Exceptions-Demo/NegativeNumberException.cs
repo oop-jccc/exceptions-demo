@@ -4,7 +4,7 @@
 // NegativeNumberException represents exceptions caused by
 // illegal operations performed on negative numbers.
 
-namespace CH13_Exceptions_Demo;
+namespace Exceptions_Demo;
 
 public class NegativeNumberException : Exception
 {
