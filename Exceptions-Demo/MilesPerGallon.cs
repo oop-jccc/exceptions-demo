@@ -12,7 +12,7 @@ public class MilesPerGallon
         get => _miles;
         set
         {
-            //ValidateNonNegative(value);
+            ValidateNonNegative(value);
             _miles = value;
         }
     }
@@ -22,9 +22,25 @@ public class MilesPerGallon
         get => _gallons;
         set
         {
-            //ValidateNonNegative(value);
-            //ValidateNonZero(value);
+            ValidateNonNegative(value);
+            ValidateNonZero(value);
             _gallons = value;
+        }
+    }
+    
+    private static void ValidateNonNegative(double value)
+    {
+        if (value < 0)
+        {
+            throw new NegativeNumberException("Miles cannot be negative");
+        }
+    }
+
+    private static void ValidateNonZero(double value)
+    {
+        if (value == 0)
+        {
+            throw new CannotBeZeroException("Gallons cannot be zero");
         }
     }
 }
